@@ -10,13 +10,13 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   test 'root route should get home' do
     get root_url
     assert_response :success
-    assert_select 'title', "#{@base_title}"
+    assert_select 'title', @base_title.to_s
   end
 
   test 'should get home' do
     get static_pages_home_url
     assert_response :success
-    assert_select 'title', "#{@base_title}"
+    assert_select 'title', @base_title.to_s
   end
 
   test 'should get help' do
