@@ -36,3 +36,6 @@ yarn-debug.log*
 
 # VS Code
 .vscode
+
+# Ignore Spring files.
+/spring/*.pid
