@@ -15,5 +15,21 @@
   <%= @user.password_digest %>
 </p>
 
+<p>
+  <strong>Created at:</strong>
+  <%= @user.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @user.updated_at %>
+</p>
+
+<p>
+  <strong>Current time:</strong>
+  <%= Time.now %>
+</p>
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
