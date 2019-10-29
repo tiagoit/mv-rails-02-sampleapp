@@ -7,12 +7,9 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false },
                     confirmation: true
-  validates :password, presence: true, length: { minimum: 8 }
-  validates_associated :posts, :comments
+  validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
 
   # relations
-  has_many :posts
-  has_many :comments
 
   # helpers
   has_secure_password

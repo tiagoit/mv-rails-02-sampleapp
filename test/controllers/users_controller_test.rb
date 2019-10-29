@@ -2,43 +2,44 @@ require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:one)
+    @user = users(:one) # from fixture
+    @sample_user_data = { name: 'John Snow', email: 'snow.john@got.tv', password: 'theWinterIsComming', password_confirmation: 'theWinterIsComming' }
   end
 
-  test "should get index" do
+  test 'should get index' do
     get users_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_user_url
     assert_response :success
   end
 
-  test "should create user" do
+  test 'should create user' do
     assert_difference('User.count') do
-      post users_url, params: { user: { email: @user.email, name: @user.name, password_digest: @user.password_digest } }
+      post users_url, params: { user: @sample_user_data }
     end
 
     assert_redirected_to user_url(User.last)
   end
 
-  test "should show user" do
+  test 'should show user' do
     get user_url(@user)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_user_url(@user)
     assert_response :success
   end
 
-  test "should update user" do
-    patch user_url(@user), params: { user: { email: @user.email, name: @user.name, password_digest: @user.password_digest } }
+  test 'should update user' do
+    patch user_url(@user), params: { user: @sample_user_data }
     assert_redirected_to user_url(@user)
   end
 
-  test "should destroy user" do
+  test 'should destroy user' do
     assert_difference('User.count', -1) do
       delete user_url(@user)
     end
