@@ -7,7 +7,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @sample_user_data = { name: 'John Snow', email: 'snow.john@got.tv', password: 'theWinterIsComming', password_confirmation: 'theWinterIsComming' }
   end
 
+  test "should redirect index when not logged in" do
+    get users_path
+    assert_redirected_to login_url
+  end
+
   test 'should get index' do
+    log_in_as @user
     get users_url
     assert_response :success
   end

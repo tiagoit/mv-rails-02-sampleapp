@@ -26,6 +26,10 @@ class ActiveSupport::TestCase
   def logged_in_for_test?
     !session[:user_id].nil?
   end
+
+  def has_forwarding_url?
+    !session[:forwarding_url].nil?
+  end
 end
 
 class ActionDispatch::IntegrationTest
