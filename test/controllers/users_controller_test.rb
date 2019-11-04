@@ -30,11 +30,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get edit' do
+    log_in_as(@user)
     get edit_user_url(@user)
     assert_response :success
   end
 
   test 'should update user' do
+    log_in_as @user
     patch user_url(@user), params: { user: @sample_user_data }
     assert_redirected_to user_url(@user)
   end
