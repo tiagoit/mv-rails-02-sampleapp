@@ -27,7 +27,7 @@ class ActiveSupport::TestCase
     !session[:user_id].nil?
   end
 
-  def has_forwarding_url?
+  def forwarding_url_defined?
     !session[:forwarding_url].nil?
   end
 end
