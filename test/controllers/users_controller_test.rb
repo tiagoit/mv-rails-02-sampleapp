@@ -48,6 +48,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to user_url(@user)
   end
 
+  test 'should reject attempts to grant admin' do
+    log_in_as @user
+    @sample_user_data[:admin] = true
+    patch user_url(@user), params: { user: @sample_user_data }
+    u = User.find_by(email: @sample_user_data[:email])
+    assert_not u.admin
+  end
+
   test 'should destroy user' do
     assert_difference('User.count', -1) do
       delete user_url(@user)
