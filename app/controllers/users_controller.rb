@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: %i[index edit update]
+  before_action :logged_in_user, only: %i[index edit update destroy]
   before_action :set_user, only: %i[show edit update destroy]
   before_action :correct_user, only: %i[edit update]
-
+  before_action :admin_user, only: :destroy
   # GET /users
   # GET /users.json
   def index
@@ -65,8 +65,9 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
+    flash[:success] = "User deleted"
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url }
       format.json { head :no_content }
     end
   end
@@ -97,5 +98,10 @@ class UsersController < ApplicationController
   # Confirms the correct user.
   def correct_user
     redirect_to(root_url) unless current_user? @user
+  end
+
+  # Confirms an admin user.
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
   end
 end
