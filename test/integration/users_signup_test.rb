@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersSignupTest < ActionDispatch::IntegrationTest
   test 'invalid signup information - empty name' do
     get signup_path
-    assert_select 'form[action="/signup"]'
+    assert_select 'form[action="/users"]'
     assert_no_difference 'User.count' do
       post users_path, params: { user: { name: '', email: 'snow.john@got.tv', password: 'winterIsComing', password_confirmation: 'winterIsComing' } }
     end
@@ -14,7 +14,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
   test 'invalid signup information - password_confirmation' do
     get signup_path
-    assert_select 'form[action="/signup"]'
+    assert_select 'form[action="/users"]'
     assert_no_difference 'User.count' do
       post users_path, params: { user: { name: 'John Snow', email: 'snow.john@got.tv', password: 'winterIsComing', password_confirmation: 'cersei' } }
     end
