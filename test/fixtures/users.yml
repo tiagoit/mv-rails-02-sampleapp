@@ -18,7 +18,7 @@ three:
   name: 'User 3'
   email: 'userthree@email.com'
   password_digest: <%= User.digest('password') %>
-  activated: true
+  activated: false
   activated_at: <%= Time.zone.now %>
 
 michael:
