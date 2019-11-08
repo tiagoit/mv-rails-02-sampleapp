@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
   before_action :correct_user, only: %i[edit update]
   before_action :admin_user, only: :destroy
+
   # GET /users
   # GET /users.json
   def index
