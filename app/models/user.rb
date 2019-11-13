@@ -16,7 +16,8 @@ class User < ApplicationRecord
                     confirmation: true
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
-  # relations
+  # associations
+  has_many :microposts, dependent: :destroy
 
   # helpers
   has_secure_password
