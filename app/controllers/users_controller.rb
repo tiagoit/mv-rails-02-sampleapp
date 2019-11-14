@@ -14,6 +14,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     redirect_to(root_url) && return unless @user.activated
+
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   # GET /users/new
