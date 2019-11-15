@@ -22,8 +22,8 @@ three:
   activated_at: <%= Time.zone.now %>
 
 michael:
-  name: 'Tiago'
-  email: 'tiago@email.com'
+  name: 'michael'
+  email: 'michael@email.com'
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
@@ -44,5 +44,11 @@ user_<%= n %>:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
-
 <% end %>
+
+malory:
+  name: 'Malory'
+  email: 'malory@email.com'
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
