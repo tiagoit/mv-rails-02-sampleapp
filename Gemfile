@@ -26,6 +26,10 @@ gem 'faker', '~> 2.7.0'
 
 gem 'will_paginate', '3.1.7'
 
+# Image upload libs
+gem 'carrierwave',             '1.2.2'
+gem 'mini_magick',             '4.7.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -63,6 +67,9 @@ end
 
 group :production do
   gem 'pg', '0.20.0'
+
+  # Image upload libs
+  gem 'fog', '1.42'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
