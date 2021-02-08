@@ -27,7 +27,7 @@ gem 'faker', '~> 2.7.0'
 gem 'will_paginate', '3.1.7'
 
 # Image upload libs
-gem 'carrierwave', '1.2.2'
+gem 'carrierwave', '1.3.2'
 gem 'mini_magick', '4.9.4'
 
 # Use Active Storage variant
